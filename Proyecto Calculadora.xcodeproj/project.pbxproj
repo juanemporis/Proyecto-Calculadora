@@ -16,6 +16,8 @@
 		DB05883F283895C600C4DF6D /* Proyecto_CalculadoraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05883E283895C600C4DF6D /* Proyecto_CalculadoraTests.swift */; };
 		DB058849283895C700C4DF6D /* Proyecto_CalculadoraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB058848283895C700C4DF6D /* Proyecto_CalculadoraUITests.swift */; };
 		DB05884B283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05884A283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift */; };
+		DB05885F283897C700C4DF6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05885D283897C700C4DF6D /* HomeViewController.swift */; };
+		DB058860283897C700C4DF6D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB05885E283897C700C4DF6D /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DB058844283895C700C4DF6D /* Proyecto CalculadoraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Proyecto CalculadoraUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB058848283895C700C4DF6D /* Proyecto_CalculadoraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_CalculadoraUITests.swift; sourceTree = "<group>"; };
 		DB05884A283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_CalculadoraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB05885D283897C700C4DF6D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DB05885E283897C700C4DF6D /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		DB058826283895C400C4DF6D /* Proyecto Calculadora */ = {
 			isa = PBXGroup;
 			children = (
+				DB05885A283896D900C4DF6D /* Util */,
 				DB058859283895E700C4DF6D /* Controller */,
 				DB058858283895D900C4DF6D /* View */,
 				DB058857283895D100C4DF6D /* Model */,
@@ -140,6 +145,7 @@
 		DB058858283895D900C4DF6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB05885B2838978C00C4DF6D /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,8 +153,32 @@
 		DB058859283895E700C4DF6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DB05885C2838979C00C4DF6D /* Home */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		DB05885A283896D900C4DF6D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		DB05885B2838978C00C4DF6D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DB05885E283897C700C4DF6D /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DB05885C2838979C00C4DF6D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DB05885D283897C700C4DF6D /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +288,7 @@
 				DB058834283895C600C4DF6D /* LaunchScreen.storyboard in Resources */,
 				DB058831283895C600C4DF6D /* Assets.xcassets in Resources */,
 				DB05882F283895C400C4DF6D /* Main.storyboard in Resources */,
+				DB058860283897C700C4DF6D /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +316,7 @@
 				DB05882C283895C400C4DF6D /* ViewController.swift in Sources */,
 				DB058828283895C400C4DF6D /* AppDelegate.swift in Sources */,
 				DB05882A283895C400C4DF6D /* SceneDelegate.swift in Sources */,
+				DB05885F283897C700C4DF6D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
