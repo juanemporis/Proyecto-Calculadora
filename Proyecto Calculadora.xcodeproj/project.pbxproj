@@ -108,9 +108,8 @@
 				DB058858283895D900C4DF6D /* View */,
 				DB058857283895D100C4DF6D /* Model */,
 				DB058827283895C400C4DF6D /* AppDelegate.swift */,
-				DB058829283895C400C4DF6D /* SceneDelegate.swift */,
-				DB05882B283895C400C4DF6D /* ViewController.swift */,
 				DB05882D283895C400C4DF6D /* Main.storyboard */,
+				DB058829283895C400C4DF6D /* SceneDelegate.swift */,
 				DB058830283895C600C4DF6D /* Assets.xcassets */,
 				DB058832283895C600C4DF6D /* LaunchScreen.storyboard */,
 				DB058835283895C600C4DF6D /* Info.plist */,
@@ -138,6 +137,7 @@
 		DB058857283895D100C4DF6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB05882B283895C400C4DF6D /* ViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

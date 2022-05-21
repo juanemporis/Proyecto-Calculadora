@@ -278,7 +278,7 @@
                                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="35"/>
                                                         </buttonConfiguration>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-kL-TnW">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-kL-TnW" userLabel="Operator Result">
                                                         <rect key="frame" x="98.5" y="0.0" width="78.5" height="78.5"/>
                                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                         <constraints>
@@ -313,6 +313,28 @@
                             <constraint firstItem="LIh-A3-h1e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="waD-Tw-ERQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="number0" destination="pYs-CS-PGG" id="a6G-NT-Mpp"/>
+                        <outlet property="number1" destination="Bdy-ll-24O" id="XLY-3N-DEN"/>
+                        <outlet property="number2" destination="zqM-eP-H1i" id="Pxr-w0-q4R"/>
+                        <outlet property="number3" destination="M00-dk-wrd" id="yuY-vP-Y2l"/>
+                        <outlet property="number4" destination="mTV-SI-sEp" id="Wc7-oc-YfX"/>
+                        <outlet property="number5" destination="blT-SA-nSo" id="Zkc-QY-KGC"/>
+                        <outlet property="number6" destination="Tag-Zn-JfN" id="jZZ-nq-8wy"/>
+                        <outlet property="number7" destination="Tag-Zn-JfN" id="eN8-Se-Thf"/>
+                        <outlet property="number8" destination="ZV4-MU-puZ" id="Wll-Ml-s0H"/>
+                        <outlet property="number9" destination="uNa-qF-YwZ" id="iuU-UD-TeR"/>
+                        <outlet property="numberDecimal" destination="ppo-FH-Aj4" id="dot-pI-Abq"/>
+                        <outlet property="operatorAC" destination="SYO-MI-43o" id="Ehi-Po-LBv"/>
+                        <outlet property="operatorAddition" destination="N61-w9-fWW" id="JnF-5g-dSE"/>
+                        <outlet property="operatorDivision" destination="DcF-CC-j4X" id="pUK-cN-iH2"/>
+                        <outlet property="operatorMultiplication" destination="EPd-Jr-ddk" id="BYl-aM-8d5"/>
+                        <outlet property="operatorPercent" destination="B4y-45-8Ks" id="Amy-KD-vtA"/>
+                        <outlet property="operatorPlusMinus" destination="fBK-YJ-1uq" id="NnN-fU-rTd"/>
+                        <outlet property="operatorSame" destination="Rd5-kL-TnW" id="cLc-RT-ffZ"/>
+                        <outlet property="operatorSubtraction" destination="Kae-em-71y" id="sEB-Mf-PqV"/>
+                        <outlet property="resultLabel" destination="LIh-A3-h1e" id="gjz-M3-NO4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

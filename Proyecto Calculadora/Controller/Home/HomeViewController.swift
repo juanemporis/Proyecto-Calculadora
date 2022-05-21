@@ -9,6 +9,11 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+    //MARK: - OUTLETS
+    
+    
+    
+    
     //MARK: - INICIALIZACION
     init(){
         super.init(nibName: nil, bundle: nil) //ES LA FORMA DE ASOCIAR UN CONTROLADOR XIB A UN CONTORLADOR SWIFT
