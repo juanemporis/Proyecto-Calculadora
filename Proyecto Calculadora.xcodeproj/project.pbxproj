@@ -18,6 +18,7 @@
 		DB05884B283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05884A283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift */; };
 		DB05885F283897C700C4DF6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05885D283897C700C4DF6D /* HomeViewController.swift */; };
 		DB058860283897C700C4DF6D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB05885E283897C700C4DF6D /* HomeViewController.xib */; };
+		DB8D97B62839B9F400CA215E /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D97B52839B9F400CA215E /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		DB05884A283895C700C4DF6D /* Proyecto_CalculadoraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_CalculadoraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DB05885D283897C700C4DF6D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB05885E283897C700C4DF6D /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		DB8D97B52839B9F400CA215E /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		DB05885A283896D900C4DF6D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DB8D97B52839B9F400CA215E /* UIButtonExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB05882C283895C400C4DF6D /* ViewController.swift in Sources */,
+				DB8D97B62839B9F400CA215E /* UIButtonExtension.swift in Sources */,
 				DB058828283895C400C4DF6D /* AppDelegate.swift in Sources */,
 				DB05882A283895C400C4DF6D /* SceneDelegate.swift in Sources */,
 				DB05885F283897C700C4DF6D /* HomeViewController.swift in Sources */,
