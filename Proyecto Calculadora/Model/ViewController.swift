@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var number9: UIButton!
     @IBOutlet weak var numberDecimal: UIButton!
     
+    
+    
     //OPERADORES
     @IBOutlet weak var operatorAC: UIButton!
     @IBOutlet weak var operatorPlusMinus: UIButton!
@@ -39,7 +41,47 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
+    //BUTTON ACTION
+    
+    @IBAction func operatorACAction(_ sender: Any) {
+        
+        
+    }
+    @IBAction func operatorPlusMinusAction(_ sender: Any) {
+        
+        
 }
+    @IBAction func operatorPercentAction(_ sender: Any) {
+        
+        
+    }
+        @IBAction func operatorResultAction(_ sender: Any) {
+            
+            
+        }
+            @IBAction func operatorAdditionAction(_ sender: Any) {
+                
+                
+            }
+                @IBAction func operatorSubtractionAction(_ sender: Any) {
+                    
+                    
+                }
+                    @IBAction func operatorMultiplicationAction(_ sender: Any) {
+                        
+                        
+                    }
+                        @IBAction func operatorDivisionAction(_ sender: Any) {
+                            
+                            
+                        }
+        
+    @IBAction func numberDecimalAction(_ sender: Any) {
+    }
 
+    
+    @IBAction func numberAction(_ sender: UIButton) {
+        print(sender.tag)
+    }
+    
+}
