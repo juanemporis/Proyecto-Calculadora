@@ -37,6 +37,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var operatorMultiplication: UIButton!
     @IBOutlet weak var operatorDivision: UIButton!
     
+    //VARIABLES
+    private var total: Double = 0 //total
+    private var temp: Double = 0 //valor por pantalla
+    private var operating = false //Indicar si se ha selecionado un operador
+    private var decimal = false //Indica si el valor es decimal
+    private var operation: OperationType = .none //Operacion actual
+    
+    //CONSTANTES
+    private let KDecimalSeparator = Locale.current.decimalSeparator!//la K se agrega adelante para saber que es un valor mutable
+    
+    private let KMaxLenght = 9 //Numero maximo de numeros
+    private let KmaxValue = 999999999 //Numero maximo visible en la calculadora
+    private let KMinValue = 0.00000001//Numero minimo visivble en la calculadora
+    
+    
+    private enum OperationType{
+        case none, addiction, substraction, multiplication, division, percent
+    }
+    
+    //Formateo de valores auxiliares
+    private let auxFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = ""
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
+    //Formateo de valores por pantalla por defecto
+    private let printFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = locale.groupingSeparator
+        formatter.groupingSeparator = locale.decimalSeparator
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 9
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 8
+        return formatter
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +103,8 @@ class ViewController: UIViewController {
         operatorSubtraction.round ()
         operatorMultiplication.round ()
         operatorDivision.round ()
+        
+        numberDecimal.setTitle(KDecimalSeparator, for: .normal)
     }
 
     //BUTTON ACTION
