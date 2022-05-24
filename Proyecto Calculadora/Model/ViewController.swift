@@ -78,6 +78,15 @@ class ViewController: UIViewController {
         return formatter
     }()
     
+    //FORMATEO DE VALORES POR PANTALLA EN FORMATO CIENTIFICO
+    private let printScientificFormatter : NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .scientific
+        formatter.maximumFractionDigits = 3
+        formatter.exponentSymbol = "e"
+        return formatter
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,10 +203,34 @@ class ViewController: UIViewController {
     }
 
     @IBAction func numberAction(_ sender: UIButton) {
+        
+        operatorAC.setTitle("C", for: .normal)
+        var currentTemp = auxFormatter.string(from: NSNumber(value: temp))!
+        if !operating && currentTemp.count >= KMaxLenght{
+            return
+        }
+        
+        //SELECCION DE UNA OPERACIÓN
+        if operating{
+            
+            total = total == 0 ? temp : total
+            resultLabel.text = ""
+            currentTemp = ""
+            operating = false
+        }
+        //SELECCION DE DECIMALES
+        if decimal{
+            currentTemp = "\(currentTemp)\(KDecimalSeparator)"
+            decimal = false
+            
+        }
+        let number = sender.tag
+        temp = Double(currentTemp + String (number))!
+        resultLabel.text = printFormatter.string(from: NSNumber(value: temp))
+        
         sender.shine()
-        print(sender.tag)
-    }
     
+    }
     //CODIGO PARA RESOLVER LAS OPERACIONES Y CALCULAR EL RESULTADO TOTAL Y MOSTRARLO EN PANTALLA
     
     //Limpia los valores
