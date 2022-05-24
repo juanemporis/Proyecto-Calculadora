@@ -105,6 +105,8 @@ class ViewController: UIViewController {
         operatorDivision.round ()
         
         numberDecimal.setTitle(KDecimalSeparator, for: .normal)
+        
+        result()
     }
 
     //BUTTON ACTION
@@ -152,5 +154,52 @@ class ViewController: UIViewController {
         print(sender.tag)
     }
     
+    //CODIGO PARA RESOLVER LAS OPERACIONES Y CALCULAR EL RESULTADO TOTAL Y MOSTRARLO EN PANTALLA
+    
+    //Limpia los valores
+    private func clear (){
+        operation = .none
+        operatorAC.setTitle("AC", for: .normal)
+        
+        if temp >= 0{
+            temp = 0
+            resultLabel.text = "0"
+        }else{
+            total = 0
+            result()
+        }
+    }
+    //RESULTADO FINAL
+    private func result(){
+     
+        //El break se encargara de detener la ejecución dentro de las llaves o bloques
+        switch operation {
+            
+        case .none:
+            //No hacemos nada
+            break
+        case .addiction:
+            total = total + temp
+            break
+        case .substraction:
+            total = total - temp
+            break
+        case .multiplication:
+            total = total * temp
+            break
+        case .division:
+            total = total / temp
+            break
+        case .percent:
+            temp = temp / 100
+            total = temp
+            break
+        }
+        //Formateo en pantalla
+        if total <= KMinValue || total >= KMinValue{
+            resultLabel.text = printFormatter.string(from: NSNumber(value: total))
+        }
+        print("TOTAL: \(total)")
+    }
 }
                   
