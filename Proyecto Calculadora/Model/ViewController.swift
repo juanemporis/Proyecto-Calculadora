@@ -112,39 +112,83 @@ class ViewController: UIViewController {
     //BUTTON ACTION
     
     @IBAction func operatorACAction(_ sender: UIButton) {
+        
+        clear()
+        
         sender.shine()
 
     }
     @IBAction func operatorPlusMinusAction(_ sender: UIButton) {
+        
+        temp = temp * (-1)
+        
+        resultLabel.text = printFormatter.string(from: NSNumber(value: temp))
+        
         sender.shine()
 
 }
     @IBAction func operatorPercentAction(_ sender: UIButton) {
+        
+        if operation != .percent{
+            result()
+        }
+        operating = true
+        operation = .percent
+        
         sender.shine()
 
     }
         @IBAction func operatorResultAction(_ sender: UIButton) {
+            
+            result()
+            
             sender.shine()
 
         }
             @IBAction func operatorAdditionAction(_ sender: UIButton) {
+                
+                result()
+                operating = true
+                operation = .addiction
+                
                 sender.shine()
 
             }
                 @IBAction func operatorSubtractionAction(_ sender: UIButton) {
+                    
+                    result()
+                    operating = true
+                    operation = .substraction
                     sender.shine()
 
                 }
                     @IBAction func operatorMultiplicationAction(_ sender: UIButton) {
+                        
+                        result()
+                        operating = true
+                        operation = .multiplication
                         sender.shine()
                     }
                         @IBAction func operatorDivisionAction(_ sender: UIButton) {
+                            
+                            result()
+                            operating = true
+                            operation = .division
                             sender.shine()
                             
 
                         }
     
     @IBAction func numberDecimalAction(_ sender: UIButton) {
+        
+        let currentTemp = auxFormatter.string(from: NSNumber(value: temp))!
+        if !operating && currentTemp.count >= KMaxLenght{
+            return
+        }
+        
+        resultLabel.text = resultLabel.text! + KDecimalSeparator
+        decimal = true
+        
         sender.shine()
 
     }
@@ -161,7 +205,7 @@ class ViewController: UIViewController {
         operation = .none
         operatorAC.setTitle("AC", for: .normal)
         
-        if temp >= 0{
+        if temp != 0{
             temp = 0
             resultLabel.text = "0"
         }else{
