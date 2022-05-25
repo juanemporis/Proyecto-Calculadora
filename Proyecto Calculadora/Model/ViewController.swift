@@ -46,8 +46,8 @@ class ViewController: UIViewController {
     
     //CONSTANTES
     private let KDecimalSeparator = Locale.current.decimalSeparator!//la K se agrega adelante para saber que es un valor mutable
-    
     private let KMaxLenght = 9 //Numero maximo de numeros
+    private let KTotal = "total"
     //private let KmaxValue = 999999999 //Numero maximo visible en la calculadora
     //private let KMinValue = 0.00000001//Numero minimo visivble en la calculadora
     
@@ -130,6 +130,8 @@ class ViewController: UIViewController {
         operatorDivision.round ()
         
         numberDecimal.setTitle(KDecimalSeparator, for: .normal)
+        
+        total = UserDefaults.standard.double(forKey: KTotal)
         
         result()
     }
@@ -315,11 +317,10 @@ class ViewController: UIViewController {
         }else{
             resultLabel.text = printFormatter.string(from: NSNumber(value: total))
         }
-           
-        
+    
         operation = .none
-        
         selectVisualOperation()
+        UserDefaults.standard.set(total, forKey: KTotal)
         
         print("TOTAL: \(total)")
     }
