@@ -48,8 +48,8 @@ class ViewController: UIViewController {
     private let KDecimalSeparator = Locale.current.decimalSeparator!//la K se agrega adelante para saber que es un valor mutable
     
     private let KMaxLenght = 9 //Numero maximo de numeros
-    private let KmaxValue = 999999999 //Numero maximo visible en la calculadora
-    private let KMinValue = 0.00000001//Numero minimo visivble en la calculadora
+    //private let KmaxValue = 999999999 //Numero maximo visible en la calculadora
+    //private let KMinValue = 0.00000001//Numero minimo visivble en la calculadora
     
     
     private enum OperationType{
@@ -61,7 +61,23 @@ class ViewController: UIViewController {
         let formatter = NumberFormatter()
         let locale = Locale.current
         formatter.groupingSeparator = ""
+        formatter.decimalSeparator = locale.decimalSeparator
         formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 100
+        formatter.maximumFractionDigits = 0
+        formatter.maximumFractionDigits = 100
+        return formatter
+    }()
+    //Formateo de valores auxiliares
+    private let auxTotalFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        let locale = Locale.current
+        formatter.groupingSeparator = ""
+        formatter.decimalSeparator = ""
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 100
+        formatter.maximumFractionDigits = 0
+        formatter.maximumFractionDigits = 100
         return formatter
     }()
     
@@ -155,34 +171,49 @@ class ViewController: UIViewController {
 
         }
             @IBAction func operatorAdditionAction(_ sender: UIButton) {
+                if operation != . none {
+                    result()
+                }
                 
-                result()
                 operating = true
                 operation = .addiction
+                sender.selectOperation(true)
                 
                 sender.shine()
 
             }
                 @IBAction func operatorSubtractionAction(_ sender: UIButton) {
                     
-                    result()
+                    if operation != . none {
+                        result()
+                    }
                     operating = true
                     operation = .substraction
+                    sender.selectOperation(true)
+
                     sender.shine()
 
                 }
                     @IBAction func operatorMultiplicationAction(_ sender: UIButton) {
                         
-                        result()
+                        if operation != . none {
+                            result()
+                        }
                         operating = true
                         operation = .multiplication
+                        sender.selectOperation(true)
+
                         sender.shine()
                     }
                         @IBAction func operatorDivisionAction(_ sender: UIButton) {
                             
-                            result()
+                            if operation != . none {
+                                result()
+                            }
                             operating = true
                             operation = .division
+                            sender.selectOperation(true)
+
                             sender.shine()
                             
 
@@ -190,13 +221,15 @@ class ViewController: UIViewController {
     
     @IBAction func numberDecimalAction(_ sender: UIButton) {
         
-        let currentTemp = auxFormatter.string(from: NSNumber(value: temp))!
+        let currentTemp = auxTotalFormatter.string(from: NSNumber(value: temp))!
         if !operating && currentTemp.count >= KMaxLenght{
             return
         }
         
         resultLabel.text = resultLabel.text! + KDecimalSeparator
         decimal = true
+        
+        selectVisualOperation()
         
         sender.shine()
 
@@ -205,10 +238,12 @@ class ViewController: UIViewController {
     @IBAction func numberAction(_ sender: UIButton) {
         
         operatorAC.setTitle("C", for: .normal)
-        var currentTemp = auxFormatter.string(from: NSNumber(value: temp))!
+        var currentTemp = auxTotalFormatter.string(from: NSNumber(value: temp))!
         if !operating && currentTemp.count >= KMaxLenght{
             return
         }
+        
+        currentTemp = auxFormatter.string(from: NSNumber(value: temp))!
         
         //SELECCION DE UNA OPERACIÓN
         if operating{
@@ -228,6 +263,8 @@ class ViewController: UIViewController {
         temp = Double(currentTemp + String (number))!
         resultLabel.text = printFormatter.string(from: NSNumber(value: temp))
         
+        selectVisualOperation()
+
         sender.shine()
     
     }
@@ -273,10 +310,65 @@ class ViewController: UIViewController {
             break
         }
         //Formateo en pantalla
-        if total <= KMinValue || total >= KMinValue{
+        if let currentTotal = auxTotalFormatter.string(from: NSNumber(value: total)), currentTotal.count > KMaxLenght{
+            resultLabel.text = printFormatter.string(from: NSNumber(value: total))
+        }else{
             resultLabel.text = printFormatter.string(from: NSNumber(value: total))
         }
+           
+        
+        operation = .none
+        
+        selectVisualOperation()
+        
         print("TOTAL: \(total)")
+    }
+    //MUESTRA DE FORMA VISUAL LA OPERACION SELECCIONADA
+    private func selectVisualOperation(){
+        
+        if !operating{
+            //NO ESTAMOS OPERANDO
+            operatorAddition.selectOperation(false)
+            operatorSubtraction.selectOperation(false)
+            operatorMultiplication.selectOperation(false)
+            operatorDivision.selectOperation(false)
+        }else{
+            
+            switch operation {
+            case.none, .percent:
+                operatorAddition.selectOperation(false)
+                operatorSubtraction.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                break
+            case .addiction:
+                operatorAddition.selectOperation(true)
+                operatorSubtraction.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                break
+            case .substraction:
+                operatorAddition.selectOperation(false)
+                operatorSubtraction.selectOperation(true)
+                operatorMultiplication.selectOperation(false)
+                operatorDivision.selectOperation(false)
+                break
+            case .multiplication:
+                operatorAddition.selectOperation(false)
+                operatorSubtraction.selectOperation(false)
+                operatorMultiplication.selectOperation(true)
+                operatorDivision.selectOperation(false)
+                break
+            case .division:
+                operatorAddition.selectOperation(false)
+                operatorSubtraction.selectOperation(false)
+                operatorMultiplication.selectOperation(false)
+                operatorDivision.selectOperation(true)
+                break
+           
+            }
+        }
+        
     }
 }
                   
